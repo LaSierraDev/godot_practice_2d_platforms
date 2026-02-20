@@ -1,13 +1,15 @@
 [gd_scene format=3 uid="uid://ccpa7scx4bvyp"]
 
 [ext_resource type="Texture2D" uid="uid://b4scwtrdgta5v" path="res://assets/sprites/player/player.png" id="1_8afob"]
-[ext_resource type="Script" uid="uid://bx6327odttix0" path="res://scripts/player.gd" id="1_dovo2"]
+[ext_resource type="Script" uid="uid://4xs5wr8oqger" path="res://scripts/player.gd" id="1_dovo2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ix64g"]
 size = Vector2(15, 20)
 
 [node name="Player" type="CharacterBody2D" unique_id=664376293]
 script = ExtResource("1_dovo2")
+speed = null
+jump_impulse = null
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1626869963]
