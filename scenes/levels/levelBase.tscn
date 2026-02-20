@@ -12,7 +12,7 @@ size = Vector2(417, 12)
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TestPlatform" type="StaticBody2D" parent="." unique_id=895091822]
+[node name="TestPlatform" type="StaticBody2D" parent="." unique_id=895091822 groups=["floor"]]
 position = Vector2(232, 256)
 metadata/_edit_group_ = true
 
@@ -23,5 +23,29 @@ texture = ExtResource("1_5074v")
 position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_qubc5")
 
+[node name="TestPlatform2" type="StaticBody2D" parent="." unique_id=589697278 groups=["floor"]]
+position = Vector2(65.999985, 195)
+scale = Vector2(0.20000124, 1)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="TestPlatform2" unique_id=1094672800]
+texture = ExtResource("1_5074v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestPlatform2" unique_id=186792292]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_qubc5")
+
+[node name="TestPlatform3" type="StaticBody2D" parent="." unique_id=1290530083 groups=["floor"]]
+position = Vector2(205, 141)
+scale = Vector2(0.20000124, 1)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="TestPlatform3" unique_id=389679910]
+texture = ExtResource("1_5074v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestPlatform3" unique_id=1891040943]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_qubc5")
+
 [node name="Player" parent="." unique_id=664376293 instance=ExtResource("2_x5he8")]
-position = Vector2(232, 230)
+position = Vector2(232, 235)

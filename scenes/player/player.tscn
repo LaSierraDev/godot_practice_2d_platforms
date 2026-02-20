@@ -207,7 +207,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ix64g"]
 size = Vector2(19, 21)
 
-[node name="Player" type="CharacterBody2D" unique_id=664376293]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p47bc"]
+size = Vector2(20, 3)
+
+[node name="Player" type="CharacterBody2D" unique_id=664376293 groups=["player"]]
 script = ExtResource("1_dovo2")
 metadata/_edit_group_ = true
 
@@ -219,3 +222,10 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1797229877]
 position = Vector2(0.5, 5.5)
 shape = SubResource("RectangleShape2D_ix64g")
+
+[node name="CoyoteTriggerArea2D" type="Area2D" parent="." unique_id=1986418193]
+position = Vector2(0, 15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoyoteTriggerArea2D" unique_id=947963527]
+position = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_p47bc")
