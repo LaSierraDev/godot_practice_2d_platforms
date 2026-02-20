@@ -24,4 +24,4 @@ position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_qubc5")
 
 [node name="Player" parent="." unique_id=664376293 instance=ExtResource("2_x5he8")]
-position = Vector2(234, 234)
+position = Vector2(232, 230)
