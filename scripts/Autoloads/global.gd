@@ -6,3 +6,11 @@ const M_LEFT: String = "left"
 
 # --- Player action --- #
 const A_JUMP: String = "jump"
+
+# --- Player movement animation --- #
+const MA_IDLE: String = "idle"
+const MA_RUN: String = "run"
+
+# --- Player action animation --- #
+const AA_JUMP: String = "jump"
+const AA_FALL: String = "fall"

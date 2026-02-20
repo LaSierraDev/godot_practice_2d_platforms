@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
+
 var x_input: float
 var is_facing_right: bool = true
 
@@ -14,6 +16,8 @@ func _physics_process(delta: float) -> void:
 	_flip()
 	_player_movement()
 	move_and_slide()
+	
+	_update_animation()
 
 
 func _flip() -> void:
@@ -36,3 +40,15 @@ func _jump() -> void:
 func _gravity(delta: float) -> void:
 	if not is_on_floor():
 		self.velocity.y += (gravity * delta)
+
+func _update_animation() -> void:
+	if self.velocity.x != 0:
+		animated_sprite.play(Global.MA_RUN)
+	
+	if self.velocity.y > 0:
+		animated_sprite.play(Global.AA_FALL)
+	elif self.velocity.y < 0:
+		animated_sprite.play(Global.AA_JUMP)
+	
+	if self.velocity == Vector2(0,0):
+		animated_sprite.play(Global.MA_IDLE)
