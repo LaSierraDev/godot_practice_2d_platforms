@@ -28,8 +28,9 @@ func _player_movement() -> void:
 
 
 func _jump() -> void: 
-	if Input.is_action_just_pressed(Global.A_JUMP):
-		self.velocity.y = -jump_impulse # Es lo mismo que multiplicarlo por -1
+	if is_on_floor():
+		if Input.is_action_just_pressed(Global.A_JUMP):
+			self.velocity.y = -jump_impulse # Es lo mismo que multiplicarlo por -1
 
 
 func _gravity(delta: float) -> void:
