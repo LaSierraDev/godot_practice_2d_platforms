@@ -1,13 +1,11 @@
 extends Camera2D
 
-@onready var player: CharacterBody2D = $"../Player"
-
 var _player = null
 
 
 func _ready() -> void:
 	if _player == null:
-		_player = player
+		_player = get_tree().get_first_node_in_group(Global.G_PLAYER)
 
 
 func _process(_delta: float) -> void:
