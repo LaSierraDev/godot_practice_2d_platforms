@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://ckp3a0dbpjj03"]
+
+[ext_resource type="Script" uid="uid://difnoakw35bbq" path="res://scripts/enemy_base.gd" id="1_h8mu4"]
+
+[node name="EnemyBase" type="CharacterBody2D" unique_id=1398268162]
+script = ExtResource("1_h8mu4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1693340170]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=646999934]
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=2088748429]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1658330687]
