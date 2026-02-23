@@ -18,7 +18,7 @@ func _ready() -> void:
 	coyote_trigger_area_2d.body_entered.connect(_on_body_entered)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	_update_animation()
 
 
