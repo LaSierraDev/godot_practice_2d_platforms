@@ -1,9 +1,9 @@
 [gd_scene format=4 uid="uid://brxj64n75uoqg"]
 
-[ext_resource type="PackedScene" uid="uid://be4bl26o05bww" path="res://scenes/camera_2d.tscn" id="1_lwywj"]
 [ext_resource type="Texture2D" uid="uid://c0eyshxw812y5" path="res://assets/sprites/tiles/foreground.png" id="2_5074v"]
 [ext_resource type="Texture2D" uid="uid://qskqi57a75hf" path="res://assets/sprites/tiles/background-tile.png" id="2_lwywj"]
 [ext_resource type="PackedScene" uid="uid://ccpa7scx4bvyp" path="res://scenes/player/player.tscn" id="2_x5he8"]
+[ext_resource type="Script" uid="uid://c18aghx8qvhfq" path="res://scripts/camera_2d.gd" id="4_lwywj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eamg3"]
 texture = ExtResource("2_lwywj")
@@ -67,7 +67,10 @@ sources/1 = SubResource("TileSetAtlasSource_x5he8")
 
 [node name="Level" type="Node2D" unique_id=49469792]
 
-[node name="Camera2D" parent="." unique_id=713958919 instance=ExtResource("1_lwywj")]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1565062422]
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+script = ExtResource("4_lwywj")
 
 [node name="TilemapsLayers" type="Node2D" parent="." unique_id=548191595]
 
