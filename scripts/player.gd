@@ -8,7 +8,7 @@ var is_facing_right: bool = true
 var is_coyote_time: bool = false
 
 @export var speed: float = 180.0
-@export var jump_impulse: float = 360.0
+@export var jump_impulse: float = 330.0
 @export var gravity: float = 980.0
 @export var coyote_time: float = 0.1
 
@@ -66,10 +66,10 @@ func _update_animation() -> void:
 
 
 func _deactive_coyote_time() -> void:
-	print("Ya no estoy en el suelo y me estoy cayendo")
+	#print("Ya no estoy en el suelo y me estoy cayendo")
 	await get_tree().create_timer(coyote_time).timeout 
 	is_coyote_time = false
-	print("Coyote time desactivado")
+	#print("Coyote time desactivado")
 
 
 func _on_body_exited(body: Node2D) -> void:
