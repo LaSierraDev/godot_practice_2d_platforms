@@ -13,37 +13,50 @@ var following_position: Vector2
 
 
 func _ready() -> void:
+	super._ready()
+	print(_player)
 	self.speed = 60
 	self.initial_position = self.position
 	collision_shape_2d.disabled = true
 	detection_area.body_entered.connect(_on_body_entered)
 	detection_area.body_exited.connect(_on_body_exited)
-	if _player == null: 
-		_player = get_tree().get_first_node_in_group(Global.G_PLAYER)
 
 
 func _process(_delta: float) -> void:
+	if not _player:
+		return
+
 	if _is_waching_player or _is_following_player:
 		_flip()
 
 
 func _physics_process(_delta: float) -> void:
+	if not _player:
+		return
+	
 	if _is_following_player:
 		following_position = _player.position
 	elif self.position != initial_position and not _is_following_player:
 		following_position = initial_position
+	
 	_flip()
 	_follow_position()
 	move_and_slide()
 
 
 func _on_body_entered(body: Node2D) -> void:
+	if not _player:
+		return
+	
 	if body == _player:
 		_is_waching_player = true
 		_is_following_player = true
 
 
 func _on_body_exited(body: Node2D) -> void:
+	if not _player:
+		return
+	
 	if body == _player:
 		_flip()
 		await get_tree().create_timer(following_time).timeout
