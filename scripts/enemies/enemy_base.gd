@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 var is_facing_right: bool = false
 
-@export var speed: float = 40.0
+@export var speed: float = 30.0
 @export var jump_impulse: float = 330.0
 @export var gravity: float = 980.0
 
