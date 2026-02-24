@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://domtusqsyxq3q"]
+
+[ext_resource type="PackedScene" uid="uid://ckp3a0dbpjj03" path="res://scenes/Enemies/enemy_base.tscn" id="1_g7ros"]
+[ext_resource type="Script" uid="uid://cqw7opwy0sq5g" path="res://scripts/enemies/bat.gd" id="2_wvkya"]
+[ext_resource type="Texture2D" uid="uid://b20c5omyu5td1" path="res://assets/sprites/enemies/bat.png" id="3_v1j6a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgwvs"]
+atlas = ExtResource("3_v1j6a")
+region = Rect2(0, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcrgb"]
+atlas = ExtResource("3_v1j6a")
+region = Rect2(46, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6epe1"]
+atlas = ExtResource("3_v1j6a")
+region = Rect2(92, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdteu"]
+atlas = ExtResource("3_v1j6a")
+region = Rect2(138, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5q3s"]
+atlas = ExtResource("3_v1j6a")
+region = Rect2(184, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dygvf"]
+atlas = ExtResource("3_v1j6a")
+region = Rect2(230, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8wf7"]
+atlas = ExtResource("3_v1j6a")
+region = Rect2(276, 0, 46, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nysrg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgwvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mcrgb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6epe1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdteu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5q3s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dygvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8wf7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 16.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvkya"]
+size = Vector2(41, 10)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wvkya"]
+radius = 55.0
+height = 140.0
+
+[node name="Bat" unique_id=1398268162 instance=ExtResource("1_g7ros")]
+script = ExtResource("2_wvkya")
+following_time = 5.0
+initial_position = Vector2(0, 0)
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1693340170]
+sprite_frames = SubResource("SpriteFrames_nysrg")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.9143225
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=646999934]
+rotation = 1.5707964
+
+[node name="CSArea2D" parent="Hurtbox" parent_id_path=PackedInt32Array(2088748429) index="0" unique_id=1658330687]
+position = Vector2(-0.5, -2)
+shape = SubResource("RectangleShape2D_wvkya")
+
+[node name="DetectionArea" type="Area2D" parent="." index="3" unique_id=62069311]
+
+[node name="DACSArea2D" type="CollisionShape2D" parent="DetectionArea" index="0" unique_id=453069894]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_wvkya")

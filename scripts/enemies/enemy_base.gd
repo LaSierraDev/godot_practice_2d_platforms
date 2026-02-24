@@ -2,10 +2,16 @@ class_name Enemy
 extends CharacterBody2D
 
 var is_facing_right: bool = false
+var _player: CharacterBody2D = null
 
 @export var speed: float = 30.0
 @export var jump_impulse: float = 330.0
 @export var gravity: float = 980.0
+
+
+func _ready() -> void:
+	if _player == null: 
+		_player = get_tree().get_first_node_in_group(Global.G_PLAYER)
 
 
 func _flip() -> void:
