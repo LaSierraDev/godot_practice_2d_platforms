@@ -69,7 +69,6 @@ radius = 55.0
 height = 140.0
 
 [node name="Bat" unique_id=1398268162 instance=ExtResource("1_g7ros")]
-collision_mask = 7
 script = ExtResource("2_wvkya")
 following_time = 5.0
 initial_position = Vector2(0, 0)

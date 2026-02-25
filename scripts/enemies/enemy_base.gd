@@ -41,3 +41,7 @@ func _horizontal_change_of_direction() -> void:
 	if is_on_wall():
 		_flip()
 		speed *= -1
+
+
+func destroy_me() -> void:
+	queue_free()
