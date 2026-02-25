@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ccpa7scx4bvyp" path="res://scenes/player/player.tscn" id="4_g7p6o"]
 [ext_resource type="PackedScene" uid="uid://cnlbwo250sgrw" path="res://scenes/enemies/mushroom.tscn" id="5_6cjw3"]
 [ext_resource type="PackedScene" uid="uid://domtusqsyxq3q" path="res://scenes/enemies/bat.tscn" id="6_dje0g"]
+[ext_resource type="PackedScene" uid="uid://be4s12somy732" path="res://scenes/collectibles/apple.tscn" id="7_g7p6o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eamg3"]
 texture = ExtResource("2_6cjw3")
@@ -97,6 +98,7 @@ texture = ExtResource("3_dje0g")
 
 [sub_resource type="TileSet" id="TileSet_lwywj"]
 physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
 sources/1 = SubResource("TileSetAtlasSource_x5he8")
 
 [node name="Level" type="Node2D" unique_id=49469792]
@@ -125,9 +127,20 @@ position = Vector2(232, 223)
 
 [node name="Mushroom2" parent="Enemies" unique_id=395882572 instance=ExtResource("5_6cjw3")]
 position = Vector2(139, 144)
+collision_layer = 1
+collision_mask = 1
 
 [node name="Mushroom3" parent="Enemies" unique_id=1398268162 instance=ExtResource("5_6cjw3")]
 position = Vector2(315, 167)
+collision_layer = 1
+collision_mask = 1
 
 [node name="Bat" parent="Enemies" unique_id=1575661661 instance=ExtResource("6_dje0g")]
-position = Vector2(87, 147)
+position = Vector2(536, 57)
+collision_layer = 1
+collision_mask = 1
+
+[node name="Collectibles" type="Node2D" parent="." unique_id=2033416386]
+
+[node name="Apple" parent="Collectibles" unique_id=252954563 instance=ExtResource("7_g7p6o")]
+position = Vector2(264, 183)

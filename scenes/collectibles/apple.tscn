@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://be4s12somy732"]
 
 [ext_resource type="Texture2D" uid="uid://d3bepvr8vuemk" path="res://assets/sprites/other/apple.png" id="1_awcoc"]
+[ext_resource type="Script" uid="uid://c584y3hgh52g7" path="res://scripts/collectibles/apple.gd" id="1_xk55w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fnura"]
 radius = 8.0
@@ -45,6 +46,9 @@ _data = {
 }
 
 [node name="Apple" type="Area2D" unique_id=252954563]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_xk55w")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1261945163]
 texture = ExtResource("1_awcoc")

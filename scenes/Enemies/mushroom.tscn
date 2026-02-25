@@ -132,6 +132,8 @@ radius = 7.0
 height = 24.0
 
 [node name="Mushroom" unique_id=1398268162 instance=ExtResource("1_v73nu")]
+collision_layer = 4
+collision_mask = 7
 script = ExtResource("2_nfsas")
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=1693340170]

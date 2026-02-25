@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
 @onready var coyote_trigger_area_2d: Area2D = $CoyoteTriggerArea2D
+@onready var hurtbox: Area2D = $Hurtbox
 
 var x_input: float
 var is_facing_right: bool = true
@@ -14,9 +15,9 @@ var is_coyote_time: bool = false
 
 
 func _ready() -> void:
-	coyote_trigger_area_2d.body_exited.connect(_on_body_exited)
-	coyote_trigger_area_2d.body_entered.connect(_on_body_entered)
-
+	coyote_trigger_area_2d.body_entered.connect(_on_body_entered_in_coyote_trigger)
+	coyote_trigger_area_2d.body_exited.connect(_on_body_exited_in_coyote_trigger)
+	hurtbox.area_entered.connect(_on_area_entered_in_hurtbox)
 
 func _process(_delta: float) -> void:
 	_update_animation()
@@ -72,12 +73,16 @@ func _deactive_coyote_time() -> void:
 	#print("Coyote time desactivado")
 
 
-func _on_body_exited(body: Node2D) -> void:
+func _on_body_entered_in_coyote_trigger(body: Node2D) -> void:
+	if body.is_in_group(Global.G_FLOOR):
+		is_coyote_time = false
+
+
+func _on_body_exited_in_coyote_trigger(body: Node2D) -> void:
 	if body.is_in_group(Global.G_FLOOR) and self.velocity.y >= 0:
 		is_coyote_time = true
 		_deactive_coyote_time()
 
 
-func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group(Global.G_FLOOR):
-		is_coyote_time = false
+func _on_area_entered_in_hurtbox(area: Area2D) -> void:
+	queue_free()

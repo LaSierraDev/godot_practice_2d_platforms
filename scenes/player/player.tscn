@@ -210,7 +210,12 @@ size = Vector2(19, 21)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p47bc"]
 size = Vector2(20, 3)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75vfm"]
+size = Vector2(21, 28)
+
 [node name="Player" type="CharacterBody2D" unique_id=664376293 groups=["player"]]
+collision_layer = 3
+collision_mask = 9
 script = ExtResource("1_dovo2")
 metadata/_edit_group_ = true
 
@@ -225,7 +230,16 @@ shape = SubResource("RectangleShape2D_ix64g")
 
 [node name="CoyoteTriggerArea2D" type="Area2D" parent="." unique_id=1986418193]
 position = Vector2(0, 15)
+collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CoyoteTriggerArea2D" unique_id=947963527]
+[node name="CS2DCoyoteTime" type="CollisionShape2D" parent="CoyoteTriggerArea2D" unique_id=947963527]
 position = Vector2(0.5, 1.5)
 shape = SubResource("RectangleShape2D_p47bc")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1966453821]
+collision_layer = 2
+collision_mask = 21
+
+[node name="CS2DHurtbox" type="CollisionShape2D" parent="Hurtbox" unique_id=1347930335]
+position = Vector2(0.5, 2)
+shape = SubResource("RectangleShape2D_75vfm")
