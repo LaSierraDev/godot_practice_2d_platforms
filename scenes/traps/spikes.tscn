@@ -7,7 +7,7 @@ size = Vector2(28, 6)
 
 [node name="Spikes" type="Area2D" unique_id=1122724139]
 collision_layer = 16
-collision_mask = 3
+collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1546986676]
 texture = ExtResource("1_x0y1a")
