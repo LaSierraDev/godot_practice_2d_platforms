@@ -94,6 +94,9 @@ func _on_coyote_trigger_body_exited(body: Node2D) -> void:
 
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group(Global.G_TRAP):
+		destroy_me()
+	
 	if self.position.y < area.global_position.y:
 		_knockback(Global.K_VERTICAL_TO_UP, jump_impulse)
 	else: print("M'ISE DANIO")

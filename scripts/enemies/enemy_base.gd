@@ -49,6 +49,7 @@ func _horizontal_change_of_direction() -> void:
 func _on_hurbox_area_entered(area: Area2D) -> void:
 	if _player.position.y < hurtbox.global_position.y:
 		queue_free()
+		
 
 
 func destroy_me() -> void:

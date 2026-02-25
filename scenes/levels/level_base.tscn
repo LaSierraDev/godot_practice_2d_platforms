@@ -143,13 +143,13 @@ position = Vector2(540, 63)
 
 [node name="Traps" type="Node2D" parent="." unique_id=1109070463 groups=["trap"]]
 
-[node name="Spikes" parent="Traps" unique_id=1122724139 instance=ExtResource("8_40ga3")]
+[node name="Spikes" parent="Traps" unique_id=1122724139 groups=["trap"] instance=ExtResource("8_40ga3")]
 position = Vector2(848, 231)
 
-[node name="Spikes2" parent="Traps" unique_id=213212667 instance=ExtResource("8_40ga3")]
+[node name="Spikes2" parent="Traps" unique_id=213212667 groups=["trap"] instance=ExtResource("8_40ga3")]
 position = Vector2(287, 231)
 
-[node name="Spikes3" parent="Traps" unique_id=1398182184 instance=ExtResource("8_40ga3")]
+[node name="Spikes3" parent="Traps" unique_id=1398182184 groups=["trap"] instance=ExtResource("8_40ga3")]
 position = Vector2(385, 231)
 
 [node name="Player" parent="." unique_id=664376293 instance=ExtResource("4_g7p6o")]

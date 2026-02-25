@@ -144,7 +144,10 @@ position = Vector2(-1.5298986e-07, 9.5)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_nfsas")
 
-[node name="CSArea2D" parent="Hurtbox" parent_id_path=PackedInt32Array(2088748429) index="0" unique_id=1658330687]
+[node name="Hurtbox" parent="." index="2" unique_id=2088748429]
+position = Vector2(0, -7)
+
+[node name="CSArea2D" parent="Hurtbox" index="0" unique_id=1658330687]
 position = Vector2(0, 6)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_nfsas")

@@ -61,8 +61,8 @@ animations = [{
 "speed": 16.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvkya"]
-size = Vector2(41, 10)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5m14n"]
+radius = 6.313987
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wvkya"]
 radius = 55.0
@@ -82,9 +82,13 @@ frame_progress = 0.17178778
 [node name="CollisionShape2D" parent="." index="1" unique_id=646999934]
 rotation = 1.5707964
 
-[node name="CSArea2D" parent="Hurtbox" parent_id_path=PackedInt32Array(2088748429) index="0" unique_id=1658330687]
-position = Vector2(-0.5, -2)
-shape = SubResource("RectangleShape2D_wvkya")
+[node name="Hurtbox" parent="." index="2" unique_id=2088748429]
+position = Vector2(0, -5)
+
+[node name="CSArea2D" parent="Hurtbox" index="0" unique_id=1658330687]
+position = Vector2(-1, 4.999999)
+rotation = 2.7329695
+shape = SubResource("CapsuleShape2D_5m14n")
 
 [node name="DetectionArea" type="Area2D" parent="." index="3" unique_id=62069311]
 collision_layer = 0
