@@ -65,7 +65,7 @@ jump={
 2d_physics/layer_2="player_hurtbox"
 2d_physics/layer_3="enemies_hurtbox"
 2d_physics/layer_4="collectibles"
-2d_physics/layer_5="tramps"
+2d_physics/layer_5="traps"
 
 [physics]
 
