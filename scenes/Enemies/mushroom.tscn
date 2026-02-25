@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cnlbwo250sgrw"]
 
-[ext_resource type="PackedScene" uid="uid://ckp3a0dbpjj03" path="res://scenes/Enemies/enemy_base.tscn" id="1_v73nu"]
+[ext_resource type="PackedScene" uid="uid://ckp3a0dbpjj03" path="res://scenes/enemies/enemy_base.tscn" id="1_v73nu"]
 [ext_resource type="Script" uid="uid://dy1axvuvpn3tm" path="res://scripts/enemies/mushroom.gd" id="2_nfsas"]
 [ext_resource type="Texture2D" uid="uid://cdtkf7cwhi7jj" path="res://assets/sprites/enemies/mushroom.png" id="3_nfsas"]
 
