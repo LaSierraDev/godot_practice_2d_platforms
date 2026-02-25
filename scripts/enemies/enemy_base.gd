@@ -1,6 +1,8 @@
 class_name Enemy
 extends CharacterBody2D
 
+@onready var hurtbox: Area2D = $Hurtbox
+
 var is_facing_right: bool = false
 var _player: CharacterBody2D = null
 
@@ -12,6 +14,7 @@ var _player: CharacterBody2D = null
 func _ready() -> void:
 	if _player == null: 
 		_player = get_tree().get_first_node_in_group(Global.G_PLAYER)
+	hurtbox.area_entered.connect(_on_hurbox_area_entered)
 
 
 func _flip() -> void:
@@ -41,6 +44,11 @@ func _horizontal_change_of_direction() -> void:
 	if is_on_wall():
 		_flip()
 		speed *= -1
+
+
+func _on_hurbox_area_entered(area: Area2D) -> void:
+	if _player.position.y < hurtbox.global_position.y:
+		queue_free()
 
 
 func destroy_me() -> void:

@@ -14,7 +14,6 @@ var following_position: Vector2
 
 func _ready() -> void:
 	super._ready()
-	print(_player)
 	self.speed = 60
 	self.initial_position = self.position
 	collision_shape_2d.disabled = true

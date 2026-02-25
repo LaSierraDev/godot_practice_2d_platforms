@@ -21,3 +21,9 @@ const G_FLOOR: String = "floor"
 const G_PLAYER: String = "player"
 const G_TRAP: String = "trap"
 const G_COLLECTIBLE: String = "collectible"
+
+## --- Knockback --- ## 
+const K_VERTICAL_TO_UP: String = "vertical up"
+const K_VERTICAL_TO_DOWN: String = "vertical down"
+const K_HORIZONTAL_TO_RIGHT: String = "horizontal right"
+const K_HORIZONTAL_TO_LEFT: String = "horizontal left"

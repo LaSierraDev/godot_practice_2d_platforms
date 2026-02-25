@@ -7,17 +7,20 @@ extends CharacterBody2D
 var x_input: float
 var is_facing_right: bool = true
 var is_coyote_time: bool = false
+var is_knockback: bool = false
+var knockback_timer: float = 0.0
 
 @export var speed: float = 180.0
 @export var jump_impulse: float = 330.0
 @export var gravity: float = 980.0
 @export var coyote_time: float = 0.1
+@export var knockback_force: float = 400.0
 
 
 func _ready() -> void:
-	coyote_trigger_area_2d.body_entered.connect(_on_body_entered_in_coyote_trigger)
-	coyote_trigger_area_2d.body_exited.connect(_on_body_exited_in_coyote_trigger)
-	hurtbox.area_entered.connect(_on_area_entered_in_hurtbox)
+	coyote_trigger_area_2d.body_entered.connect(_on_coyote_trigger_body_entered_in)
+	coyote_trigger_area_2d.body_exited.connect(_on_coyote_trigger_body_exited)
+	hurtbox.area_entered.connect(_on_hurtbox_area_entered)
 
 func _process(_delta: float) -> void:
 	_update_animation()
@@ -25,9 +28,15 @@ func _process(_delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	_gravity(delta)
-	_jump()
+	
+	if is_knockback:
+		knockback_timer -= delta
+		if knockback_timer <= 0:
+			is_knockback = false
+	else:
+		_player_movement()
+		_jump()
 	_flip()
-	_player_movement()
 	move_and_slide()
 
 
@@ -73,20 +82,37 @@ func _deactive_coyote_time() -> void:
 	#print("Coyote time desactivado")
 
 
-func _on_body_entered_in_coyote_trigger(body: Node2D) -> void:
+func _on_coyote_trigger_body_entered_in(body: Node2D) -> void:
 	if body.is_in_group(Global.G_FLOOR):
 		is_coyote_time = false
 
 
-func _on_body_exited_in_coyote_trigger(body: Node2D) -> void:
+func _on_coyote_trigger_body_exited(body: Node2D) -> void:
 	if body.is_in_group(Global.G_FLOOR) and self.velocity.y >= 0:
 		is_coyote_time = true
 		_deactive_coyote_time()
 
 
-func _on_area_entered_in_hurtbox(area: Area2D) -> void:
-	print("Player y: " + str(self.position.y))
-	print(area.name + " y: " + str(area.position.y))
-	print(area.get_groups())
-	if area.is_in_group(Global.G_ENEMY) and area.position.y > self.position.y:
-		area.destroy_me()
+func _on_hurtbox_area_entered(area: Area2D) -> void:
+	if self.position.y < area.global_position.y:
+		_knockback(Global.K_VERTICAL_TO_UP, jump_impulse)
+	else: print("M'ISE DANIO")
+
+
+func _knockback(direction: String, force: float) -> void:
+	is_knockback = true
+	knockback_timer = 0.2
+	
+	match direction:
+		Global.K_HORIZONTAL_TO_LEFT:
+			self.velocity.x = -force
+		Global.K_HORIZONTAL_TO_RIGHT:
+			self.velocity.x = force
+		Global.K_VERTICAL_TO_DOWN:
+			self.velocity.y = force
+		Global.K_VERTICAL_TO_UP:
+			self.velocity.y = -force
+
+
+func destroy_me():
+	queue_free()
