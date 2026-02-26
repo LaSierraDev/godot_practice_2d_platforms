@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cnlbwo250sgrw" path="res://scenes/enemies/mushroom.tscn" id="5_6cjw3"]
 [ext_resource type="PackedScene" uid="uid://domtusqsyxq3q" path="res://scenes/enemies/bat.tscn" id="6_dje0g"]
 [ext_resource type="PackedScene" uid="uid://be4s12somy732" path="res://scenes/collectibles/apple.tscn" id="7_g7p6o"]
+[ext_resource type="PackedScene" uid="uid://calaewrk42yys" path="res://scenes/fall_death_area.tscn" id="7_ynct0"]
 [ext_resource type="PackedScene" uid="uid://kb7lpfx7i2l6" path="res://scenes/traps/spikes.tscn" id="8_40ga3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eamg3"]
@@ -140,6 +141,20 @@ collision_mask = 1
 
 [node name="Bat" parent="Enemies" unique_id=2035933186 instance=ExtResource("6_dje0g")]
 position = Vector2(540, 63)
+
+[node name="FDAreas" type="Node2D" parent="." unique_id=2088746831 groups=["trap"]]
+
+[node name="FallDeathArea" parent="FDAreas" unique_id=2086890845 instance=ExtResource("7_ynct0")]
+position = Vector2(472, 302)
+scale = Vector2(5.5600047, 1)
+
+[node name="FallDeathArea2" parent="FDAreas" unique_id=929930262 instance=ExtResource("7_ynct0")]
+position = Vector2(1117, 302)
+scale = Vector2(17.360004, 1)
+
+[node name="FallDeathArea3" parent="FDAreas" unique_id=183013602 instance=ExtResource("7_ynct0")]
+position = Vector2(-174, 302)
+scale = Vector2(17.360004, 1)
 
 [node name="Traps" type="Node2D" parent="." unique_id=1109070463 groups=["trap"]]
 
