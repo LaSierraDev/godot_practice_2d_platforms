@@ -2,6 +2,8 @@ class_name Enemy
 extends CharacterBody2D
 
 @onready var hurtbox: Area2D = $Hurtbox
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 var is_facing_right: bool = false
 var _player: CharacterBody2D = null
@@ -15,6 +17,7 @@ func _ready() -> void:
 	if _player == null: 
 		_player = get_tree().get_first_node_in_group(Global.G_PLAYER)
 	hurtbox.area_entered.connect(_on_hurbox_area_entered)
+	animation_player.animation_finished.connect(_on_animation_player_animation_finished)
 
 
 func _flip() -> void:
@@ -48,9 +51,21 @@ func _horizontal_change_of_direction() -> void:
 
 func _on_hurbox_area_entered(area: Area2D) -> void:
 	if _player.position.y < hurtbox.global_position.y:
-		queue_free()
-		
+		hit()
+
+
+func _on_animation_player_animation_finished(ani_name: StringName) -> void:
+	destroy_me()
 
 
 func destroy_me() -> void:
 	queue_free()
+
+
+func hit() -> void:
+	animation_player.play(Global.ANI_DISSAPIAR, true)
+	stand() 
+
+func stand() -> void: 
+	animated_sprite_2d.pause()
+	set_physics_process(false)

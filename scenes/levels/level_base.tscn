@@ -127,6 +127,17 @@ tile_set = SubResource("TileSet_lwywj")
 [node name="Apple" parent="Collectibles" unique_id=252954563 instance=ExtResource("7_g7p6o")]
 position = Vector2(264, 183)
 
+[node name="Traps" type="Node2D" parent="." unique_id=1109070463 groups=["trap"]]
+
+[node name="Spikes" parent="Traps" unique_id=1122724139 groups=["trap"] instance=ExtResource("8_40ga3")]
+position = Vector2(848, 231)
+
+[node name="Spikes2" parent="Traps" unique_id=213212667 groups=["trap"] instance=ExtResource("8_40ga3")]
+position = Vector2(287, 231)
+
+[node name="Spikes3" parent="Traps" unique_id=1398182184 groups=["trap"] instance=ExtResource("8_40ga3")]
+position = Vector2(385, 231)
+
 [node name="Enemies" type="Node2D" parent="." unique_id=185460080 groups=["enemy"]]
 
 [node name="Mushroom2" parent="Enemies" unique_id=395882572 instance=ExtResource("5_6cjw3")]
@@ -155,17 +166,6 @@ scale = Vector2(17.360004, 1)
 [node name="FallDeathArea3" parent="FDAreas" unique_id=183013602 instance=ExtResource("7_ynct0")]
 position = Vector2(-174, 302)
 scale = Vector2(17.360004, 1)
-
-[node name="Traps" type="Node2D" parent="." unique_id=1109070463 groups=["trap"]]
-
-[node name="Spikes" parent="Traps" unique_id=1122724139 groups=["trap"] instance=ExtResource("8_40ga3")]
-position = Vector2(848, 231)
-
-[node name="Spikes2" parent="Traps" unique_id=213212667 groups=["trap"] instance=ExtResource("8_40ga3")]
-position = Vector2(287, 231)
-
-[node name="Spikes3" parent="Traps" unique_id=1398182184 groups=["trap"] instance=ExtResource("8_40ga3")]
-position = Vector2(385, 231)
 
 [node name="Player" parent="." unique_id=664376293 instance=ExtResource("4_g7p6o")]
 position = Vector2(232, 223)

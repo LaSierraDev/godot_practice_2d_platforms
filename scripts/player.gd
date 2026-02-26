@@ -99,7 +99,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 	
 	if self.position.y < area.global_position.y:
 		_knockback(Global.K_VERTICAL_TO_UP, jump_impulse)
-	else: print("M'ISE DANIO")
+	else: destroy_me()
 
 
 func _knockback(direction: String, force: float) -> void:

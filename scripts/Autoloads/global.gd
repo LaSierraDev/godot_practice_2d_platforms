@@ -27,3 +27,6 @@ const K_VERTICAL_TO_UP: String = "vertical up"
 const K_VERTICAL_TO_DOWN: String = "vertical down"
 const K_HORIZONTAL_TO_RIGHT: String = "horizontal right"
 const K_HORIZONTAL_TO_LEFT: String = "horizontal left"
+
+## --- Animation --- ## 
+const ANI_DISSAPIAR: String = "dissapear"

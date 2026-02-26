@@ -1,6 +1,5 @@
 extends Enemy
 
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var detection_area: Area2D = $DetectionArea
 
