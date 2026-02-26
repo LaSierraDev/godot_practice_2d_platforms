@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
 @onready var coyote_trigger_area_2d: Area2D = $CoyoteTriggerArea2D
 @onready var hurtbox: Area2D = $Hurtbox
@@ -21,6 +22,7 @@ func _ready() -> void:
 	coyote_trigger_area_2d.body_entered.connect(_on_coyote_trigger_body_entered_in)
 	coyote_trigger_area_2d.body_exited.connect(_on_coyote_trigger_body_exited)
 	hurtbox.area_entered.connect(_on_hurtbox_area_entered)
+	animation_player.animation_finished.connect(_on_animation_player_animation_finished)
 
 func _process(_delta: float) -> void:
 	_update_animation()
@@ -82,26 +84,6 @@ func _deactive_coyote_time() -> void:
 	#print("Coyote time desactivado")
 
 
-func _on_coyote_trigger_body_entered_in(body: Node2D) -> void:
-	if body.is_in_group(Global.G_FLOOR):
-		is_coyote_time = false
-
-
-func _on_coyote_trigger_body_exited(body: Node2D) -> void:
-	if body.is_in_group(Global.G_FLOOR) and self.velocity.y >= 0:
-		is_coyote_time = true
-		_deactive_coyote_time()
-
-
-func _on_hurtbox_area_entered(area: Area2D) -> void:
-	if area.is_in_group(Global.G_TRAP):
-		destroy_me()
-	
-	if self.position.y < area.global_position.y:
-		_knockback(Global.K_VERTICAL_TO_UP, jump_impulse)
-	else: destroy_me()
-
-
 func _knockback(direction: String, force: float) -> void:
 	is_knockback = true
 	knockback_timer = 0.2
@@ -117,5 +99,40 @@ func _knockback(direction: String, force: float) -> void:
 			self.velocity.y = -force
 
 
+func _on_coyote_trigger_body_entered_in(body: Node2D) -> void:
+	if body.is_in_group(Global.G_FLOOR):
+		is_coyote_time = false
+
+
+func _on_coyote_trigger_body_exited(body: Node2D) -> void:
+	if body.is_in_group(Global.G_FLOOR) and self.velocity.y >= 0:
+		is_coyote_time = true
+		_deactive_coyote_time()
+
+
+func _on_hurtbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group(Global.G_TRAP):
+		hit()
+	elif self.position.y < area.global_position.y:
+		_knockback(Global.K_VERTICAL_TO_UP, jump_impulse)
+	else: hit()
+
+
+func _on_animation_player_animation_finished(ani_name: StringName) -> void:
+	print("morí")
+	destroy_me()
+
+
+func hit() -> void:
+	animation_player.play(Global.ANI_DISSAPIAR, true)
+	stand() 
+
+
 func destroy_me():
 	queue_free()
+
+
+func stand() -> void: 
+	animated_sprite.stop()
+	set_process(false)
+	set_physics_process(false)
