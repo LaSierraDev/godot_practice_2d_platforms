@@ -32,7 +32,6 @@ func _process(_delta: float) -> void:
 	if self.position == initial_position:
 		_is_initial_position = true
 	else: _is_initial_position = false
-	print(self.position)
 
 
 func _physics_process(_delta: float) -> void:
@@ -85,9 +84,6 @@ func _on_body_exited(body: Node2D) -> void:
 
 
 func _on_screen_exited_screen_notifier() -> void:
-	print("Estoy fuera de pantalla")
 	await get_tree().create_timer(_deactivated_time).timeout
-	print("ha pasao el tiempo")
 	if _is_initial_position:
-		print("Me desactivo")
 		_activation(false)
