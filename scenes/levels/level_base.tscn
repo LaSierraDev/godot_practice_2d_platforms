@@ -186,13 +186,10 @@ position = Vector2(407, 176)
 collision_layer = 1
 collision_mask = 1
 
-[node name="Bat" parent="Enemies" unique_id=2035933186 instance=ExtResource("6_dje0g")]
-position = Vector2(765, 61)
+[node name="Bat3" parent="Enemies" unique_id=1206576782 instance=ExtResource("6_dje0g")]
+position = Vector2(-76, 180)
 following_time = 3.0
-
-[node name="Bat2" parent="Enemies" unique_id=368767372 instance=ExtResource("6_dje0g")]
-position = Vector2(1186, 126)
-following_time = 3.0
+wait_time_to_reset_position = 5.0
 
 [node name="Mushroom4" parent="Enemies" unique_id=1756019100 instance=ExtResource("5_6cjw3")]
 position = Vector2(524, 255)

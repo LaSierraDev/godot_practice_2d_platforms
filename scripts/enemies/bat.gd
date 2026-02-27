@@ -9,6 +9,7 @@ var _is_initial_position: bool = true
 var following_position: Vector2
 
 @export var following_time: float = 3.0
+@export var wait_time_to_reset_position: float = 5.0
 @export var initial_position: Vector2
 
 
@@ -31,6 +32,7 @@ func _process(_delta: float) -> void:
 	if self.position == initial_position:
 		_is_initial_position = true
 	else: _is_initial_position = false
+	print(self.position)
 
 
 func _physics_process(_delta: float) -> void:
@@ -39,10 +41,15 @@ func _physics_process(_delta: float) -> void:
 	
 	if _is_following_player:
 		following_position = _player.position
+		_move()
 	elif self.position != initial_position and not _is_following_player:
 		following_position = initial_position
-	
-	_flip()
+		_move()
+		await get_tree().create_timer(wait_time_to_reset_position).timeout
+		self.position = initial_position
+
+
+func _move() -> void:
 	_follow_position()
 	move_and_slide()
 
@@ -52,7 +59,8 @@ func _flip() -> void:
 
 
 func _follow_position() -> void:
-	var following_vector: Vector2 = Vector2(following_position - self.position).normalized() #Desde el murcielago hasta el jugador
+	_flip()
+	var following_vector: Vector2 = Vector2(following_position - self.position).normalized()
 	self.velocity = following_vector * speed
 
 

@@ -118,8 +118,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 	else: hit()
 
 
-func _on_animation_player_animation_finished(ani_name: StringName) -> void:
-	print("morí")
+func _on_animation_player_animation_finished(_ani_name: StringName) -> void:
 	destroy_me()
 
 

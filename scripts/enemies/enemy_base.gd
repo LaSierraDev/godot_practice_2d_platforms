@@ -85,7 +85,6 @@ func _on_animation_player_animation_finished(_ani_name: StringName) -> void:
 
 
 func _on_screen_entered_screen_notifier() -> void:
-	print("Estoy dentro")
 	_is_inside_screen = true
 	_activation(_is_inside_screen)
 
