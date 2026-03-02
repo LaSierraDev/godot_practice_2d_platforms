@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://be4s12somy732" path="res://scenes/collectibles/apple.tscn" id="7_g7p6o"]
 [ext_resource type="PackedScene" uid="uid://calaewrk42yys" path="res://scenes/fall_death_area.tscn" id="7_ynct0"]
 [ext_resource type="PackedScene" uid="uid://kb7lpfx7i2l6" path="res://scenes/traps/spikes.tscn" id="8_40ga3"]
+[ext_resource type="PackedScene" uid="uid://dppeuckep8g0j" path="res://scenes/moving_platform.tscn" id="9_w06h8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eamg3"]
 texture = ExtResource("2_6cjw3")
@@ -189,7 +190,6 @@ collision_mask = 1
 [node name="Bat3" parent="Enemies" unique_id=1206576782 instance=ExtResource("6_dje0g")]
 position = Vector2(806, 71)
 following_time = 3.0
-wait_time_to_reset_position = 5.0
 
 [node name="Mushroom4" parent="Enemies" unique_id=1756019100 instance=ExtResource("5_6cjw3")]
 position = Vector2(524, 255)
@@ -213,5 +213,19 @@ scale = Vector2(19.240005, 1)
 
 [node name="Platforms" type="Node2D" parent="." unique_id=1521778010]
 
+[node name="MovingPlatform" parent="Platforms" unique_id=1611644980 node_paths=PackedStringArray("target_marker") instance=ExtResource("9_w06h8")]
+position = Vector2(1246, 192)
+target_marker = NodePath("Target")
+
+[node name="Target" type="Marker2D" parent="Platforms/MovingPlatform" unique_id=847495112]
+position = Vector2(327, 0)
+
+[node name="MovingPlatform2" parent="Platforms" unique_id=611584526 node_paths=PackedStringArray("target_marker") instance=ExtResource("9_w06h8")]
+position = Vector2(-143, 229)
+target_marker = NodePath("Target")
+
+[node name="Target" type="Marker2D" parent="Platforms/MovingPlatform2" unique_id=1131919007]
+position = Vector2(201, -99)
+
 [node name="Player" parent="." unique_id=664376293 instance=ExtResource("4_g7p6o")]
-position = Vector2(41, 253)
+position = Vector2(-141, 192)
