@@ -30,3 +30,6 @@ const K_HORIZONTAL_TO_LEFT: String = "horizontal left"
 
 ## --- Animation --- ## 
 const ANI_DISSAPIAR: String = "dissapear"
+
+## --- Properties Tweens --- ##
+const P_POSITION: String = "position"
