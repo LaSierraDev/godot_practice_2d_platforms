@@ -12,7 +12,7 @@ var is_knockback: bool = false
 var knockback_timer: float = 0.0
 
 @export var speed: float = 180.0
-@export var jump_impulse: float = 330.0
+@export var jump_impulse: float = 385.0
 @export var gravity: float = 980.0
 @export var coyote_time: float = 0.1
 @export var knockback_force: float = 400.0

@@ -14,16 +14,19 @@ var _deactivated_time: float = 1.0
 @export var speed: float = 30.0
 @export var jump_impulse: float = 330.0
 @export var gravity: float = 980.0
+@export var inverse: bool = false
 
 
 ## -*- ENGINE CALLBACKS -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- ##
 func _ready() -> void:
 	if _player == null: 
 		_player = get_tree().get_first_node_in_group(Global.G_PLAYER)
+	
 	hurtbox.area_entered.connect(_on_hurbox_area_entered)
 	animation_player.animation_finished.connect(_on_animation_player_animation_finished)
 	visible_on_screen_notifier_2d.screen_entered.connect(_on_screen_entered_screen_notifier)
 	visible_on_screen_notifier_2d.screen_exited.connect(_on_screen_exited_screen_notifier)
+	
 
 
 ## -*- PRIVATE FUNCS -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- ##
