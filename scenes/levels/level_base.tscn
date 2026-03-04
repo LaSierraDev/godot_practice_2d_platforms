@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c18aghx8qvhfq" path="res://scripts/camera_2d.gd" id="1_d61h5"]
 [ext_resource type="Texture2D" uid="uid://qskqi57a75hf" path="res://assets/sprites/tiles/background-tile.png" id="2_6cjw3"]
 [ext_resource type="Texture2D" uid="uid://c0eyshxw812y5" path="res://assets/sprites/tiles/foreground.png" id="3_dje0g"]
-[ext_resource type="PackedScene" uid="uid://1v3ioeemvap1" path="res://scenes/levels/level_end.tscn" id="4_dq8h5"]
+[ext_resource type="PackedScene" uid="uid://1v3ioeemvap1" path="res://scenes/levels/level_condition_end.tscn" id="4_dq8h5"]
 [ext_resource type="PackedScene" uid="uid://ccpa7scx4bvyp" path="res://scenes/player/player.tscn" id="4_g7p6o"]
 [ext_resource type="PackedScene" uid="uid://calaewrk42yys" path="res://scenes/fall_death_area.tscn" id="7_ynct0"]
 
@@ -155,6 +155,6 @@ position = Vector2(0, 184)
 
 [node name="Platforms" type="Node2D" parent="." unique_id=1521778010]
 
-[node name="LevelEnd" parent="." unique_id=1742340898 instance=ExtResource("4_dq8h5")]
+[node name="LevelConditionEnd" parent="." unique_id=1742340898 instance=ExtResource("4_dq8h5")]
 
 [node name="Player" parent="." unique_id=664376293 instance=ExtResource("4_g7p6o")]

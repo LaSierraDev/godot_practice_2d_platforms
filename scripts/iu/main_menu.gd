@@ -19,13 +19,16 @@ func _process(delta: float) -> void:
 
 
 func _on_start_button_pressed() -> void:
-	pass
+	GameManager.load_next_level()
+
 
 func _on_sfx_button_pressed() -> void:
 	pass
 
+
 func _on_music_button_pressed() -> void:
 	pass
 
+
 func _on_quit_button_pressed() -> void:
-	pass
+	get_tree().quit()

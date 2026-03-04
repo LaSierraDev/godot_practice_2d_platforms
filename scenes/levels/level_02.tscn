@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://kb7lpfx7i2l6" path="res://scenes/traps/spikes.tscn" id="3_keemd"]
 [ext_resource type="PackedScene" uid="uid://domtusqsyxq3q" path="res://scenes/enemies/bat.tscn" id="4_keemd"]
 [ext_resource type="PackedScene" uid="uid://dppeuckep8g0j" path="res://scenes/moving_platform.tscn" id="6_ppbiy"]
+[ext_resource type="PackedScene" uid="uid://1v3ioeemvap1" path="res://scenes/levels/level_condition_end.tscn" id="7_keemd"]
 
 [node name="Level" unique_id=49469792 instance=ExtResource("1_3acmf")]
 
@@ -152,10 +153,9 @@ position = Vector2(360, -64)
 
 [node name="MovingPlatform4" parent="Platforms" parent_id_path=PackedInt32Array(1521778010) index="3" unique_id=769951976 node_paths=PackedStringArray("target_marker") instance=ExtResource("6_ppbiy")]
 position = Vector2(2296, 160)
-target_marker = NodePath("Marker2D")
-
-[node name="Marker2D" type="Marker2D" parent="Platforms/MovingPlatform4" index="2" unique_id=1124063485]
-position = Vector2(-408, -64)
+displacement_time = 4.0
+wait_time = 1.5
+target_marker = NodePath("../MovingPlatform3/Marker2D")
 
 [node name="MovingPlatform5" parent="Platforms" parent_id_path=PackedInt32Array(1521778010) index="4" unique_id=423631674 node_paths=PackedStringArray("target_marker") instance=ExtResource("6_ppbiy")]
 position = Vector2(2344, 160)
@@ -181,7 +181,10 @@ target_marker = NodePath("Marker2D")
 
 [node name="Marker2D" type="Marker2D" parent="Platforms/MovingPlatform7" index="2" unique_id=176928440]
 
-[node name="LevelEnd" parent="." index="7" unique_id=1742340898]
+[node name="LevelConditionEnd" parent="Platforms" parent_id_path=PackedInt32Array(1521778010) index="8" unique_id=1742340898 instance=ExtResource("7_keemd")]
+position = Vector2(112, 224)
+
+[node name="LevelConditionEnd" parent="." index="7" unique_id=1742340898]
 position = Vector2(2448, 126)
 
 [node name="Player" parent="." index="8" unique_id=664376293]

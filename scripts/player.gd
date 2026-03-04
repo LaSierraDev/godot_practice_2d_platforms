@@ -24,6 +24,7 @@ func _ready() -> void:
 	hurtbox.area_entered.connect(_on_hurtbox_area_entered)
 	animation_player.animation_finished.connect(_on_animation_player_animation_finished)
 
+
 func _process(_delta: float) -> void:
 	_update_animation()
 
@@ -99,6 +100,22 @@ func _knockback(direction: String, force: float) -> void:
 			self.velocity.y = -force
 
 
+func hit() -> void:
+	animation_player.play(Global.ANI_DISSAPIAR, true)
+	stand() 
+
+
+func destroy_me():
+	SignalManager.player_dead.emit()
+	queue_free()
+
+
+func stand() -> void: 
+	animated_sprite.stop()
+	set_process(false)
+	set_physics_process(false)
+
+
 func _on_coyote_trigger_body_entered_in(body: Node2D) -> void:
 	if body.is_in_group(Global.G_FLOOR):
 		is_coyote_time = false
@@ -120,18 +137,3 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 
 func _on_animation_player_animation_finished(_ani_name: StringName) -> void:
 	destroy_me()
-
-
-func hit() -> void:
-	animation_player.play(Global.ANI_DISSAPIAR, true)
-	stand() 
-
-
-func destroy_me():
-	queue_free()
-
-
-func stand() -> void: 
-	animated_sprite.stop()
-	set_process(false)
-	set_physics_process(false)
