@@ -17,7 +17,6 @@ var _deactivated_time: float = 1.0
 @export var inverse: bool = false
 
 
-## -*- ENGINE CALLBACKS -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- ##
 func _ready() -> void:
 	if _player == null: 
 		_player = get_tree().get_first_node_in_group(Global.G_PLAYER)
@@ -29,7 +28,6 @@ func _ready() -> void:
 	
 
 
-## -*- PRIVATE FUNCS -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- ##
 func _flip() -> void:
 	if (_is_facing_right and self.velocity.x < 0) or (not _is_facing_right and self.velocity.x > 0):
 		self.scale.x *= -1
@@ -64,7 +62,6 @@ func _activation(yon: bool) -> void:
 	set_physics_process(yon)
 
 
-## -*- PUBLIC FUNCS -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- ##
 func destroy_me() -> void:
 	queue_free()
 
@@ -73,11 +70,12 @@ func hit() -> void:
 	animation_player.play(Global.ANI_DISSAPIAR, true)
 	stand() 
 
+
 func stand() -> void: 
 	animated_sprite_2d.pause()
 	_activation(false)
 
-## -*- SIGNALS FUNCS -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- ##
+
 func _on_hurbox_area_entered(_area: Area2D) -> void:
 	if _player.position.y < hurtbox.global_position.y:
 		hit()

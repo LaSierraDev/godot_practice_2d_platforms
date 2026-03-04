@@ -5,15 +5,31 @@
 [ext_resource type="Texture2D" uid="uid://dwmfywb6r87pv" path="res://assets/sprites/ui/button-normal.png" id="2_4mikn"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w8cmg"]
+content_margin_left = 20.0
+content_margin_top = 5.0
+content_margin_right = 20.0
+content_margin_bottom = 5.0
 texture = ExtResource("1_xpo83")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a0o6w"]
+content_margin_left = 20.0
+content_margin_top = 5.0
+content_margin_right = 20.0
+content_margin_bottom = 5.0
 texture = ExtResource("1_xpo83")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_28xwq"]
+content_margin_left = 20.0
+content_margin_top = 5.0
+content_margin_right = 20.0
+content_margin_bottom = 5.0
 texture = ExtResource("2_4mikn")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8whp5"]
+content_margin_left = 20.0
+content_margin_top = 5.0
+content_margin_right = 20.0
+content_margin_bottom = 5.0
 texture = ExtResource("1_xpo83")
 
 [resource]

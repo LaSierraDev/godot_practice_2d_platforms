@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d1flsgnad5ehg"]
 
 [ext_resource type="Texture2D" uid="uid://donwt4nr8xwof" path="res://assets/sprites/ui/background.png" id="1_bmkcv"]
+[ext_resource type="Script" uid="uid://m05f45uh31c4" path="res://scripts/iu/main_menu.gd" id="1_q3efc"]
 
 [node name="MainMenu" type="Control" unique_id=1646652737]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_q3efc")
 
 [node name="BackgroundTR" type="TextureRect" parent="." unique_id=2085018595]
 layout_mode = 0
@@ -25,24 +27,64 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -108.0
+offset_top = -98.0
+offset_right = 108.0
+offset_bottom = 98.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 8
+alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=91276998]
+[node name="TitleVBC" type="VBoxContainer" parent="VBoxContainer" unique_id=91276998]
 layout_mode = 2
-theme_override_constants/separation = 1
+theme_override_constants/separation = 2
 
-[node name="TitleLabel" type="Label" parent="VBoxContainer/VBoxContainer" unique_id=525552966]
+[node name="TitleLabel" type="Label" parent="VBoxContainer/TitleVBC" unique_id=525552966]
 layout_mode = 2
+theme_type_variation = &"HeaderLarge"
 text = "PLATFORM 2D"
 horizontal_alignment = 1
 
-[node name="SubTitleLabel" type="Label" parent="VBoxContainer/VBoxContainer" unique_id=1822540624]
+[node name="SubTitleLabel" type="Label" parent="VBoxContainer/TitleVBC" unique_id=1822540624]
 layout_mode = 2
-theme_override_font_sizes/font_size = 7
-text = "- Game practise -"
+theme_override_font_sizes/font_size = 10
+text = "- Practice game -"
+horizontal_alignment = 1
+
+[node name="Separator" type="Control" parent="VBoxContainer" unique_id=1926011772]
+layout_mode = 2
+
+[node name="ButtonVBC" type="VBoxContainer" parent="VBoxContainer" unique_id=573606807]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 7
+
+[node name="StartButton" type="Button" parent="VBoxContainer/ButtonVBC" unique_id=515755077]
+layout_mode = 2
+theme_type_variation = &"FlatButton"
+text = "start"
+
+[node name="SFXButton" type="Button" parent="VBoxContainer/ButtonVBC" unique_id=1330003169]
+layout_mode = 2
+theme_type_variation = &"FlatButton"
+text = "SFX: On"
+
+[node name="MusicButton" type="Button" parent="VBoxContainer/ButtonVBC" unique_id=1032296177]
+layout_mode = 2
+theme_type_variation = &"FlatButton"
+text = "Music: On"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer/ButtonVBC" unique_id=497788854]
+layout_mode = 2
+theme_type_variation = &"FlatButton"
+text = "Quit"
+
+[node name="Separator2" type="Control" parent="VBoxContainer" unique_id=26248165]
+layout_mode = 2
+
+[node name="HighScoreLabel" type="Label" parent="VBoxContainer" unique_id=872400067]
+layout_mode = 2
+text = "High Score: 0"
 horizontal_alignment = 1
