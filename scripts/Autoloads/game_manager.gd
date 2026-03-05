@@ -22,7 +22,7 @@ func load_next_level() -> void:
 	if current_level > LEVELS.size():
 		_score_screen()
 	else: 
-		get_tree().change_scene_to_packed(LEVELS[current_level])
+		get_tree().change_scene_to_packed.call_deferred(LEVELS[current_level])
 
 
 func _ready() -> void:
@@ -32,13 +32,13 @@ func _ready() -> void:
 
 
 func _score_screen() -> void: 
-		get_tree().change_scene_to_packed(END_SCREEN)
+		get_tree().change_scene_to_packed.call_deferred(END_SCREEN)
 
 
-func _reset_game() -> void:
+func restart_game() -> void:
 	current_level = 0
 	current_score = 0
-	get_tree().change_scene_to_packed(MAIN_MENU)
+	get_tree().change_scene_to_packed.call_deferred(MAIN_MENU)
 
 
 func _reset_level() -> void:

@@ -14,7 +14,7 @@ func _ready() -> void:
 	quit_button.pressed.connect(_on_quit_button_pressed)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 

@@ -10,4 +10,4 @@ func _ready() -> void:
 
 
 func _on_return_button_pressed() -> void:
-	GameManager._reset_game()
+	GameManager.restart_game()
