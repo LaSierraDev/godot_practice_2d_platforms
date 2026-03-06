@@ -12,7 +12,8 @@ func _ready() -> void:
 	sfx_button.pressed.connect(_on_sfx_button_pressed)
 	music_button.pressed.connect(_on_music_button_pressed)
 	quit_button.pressed.connect(_on_quit_button_pressed)
-
+	
+	start_button.grab_focus()
 
 func _process(_delta: float) -> void:
 	pass

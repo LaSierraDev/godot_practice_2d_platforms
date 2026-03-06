@@ -12,8 +12,9 @@ var game_over: bool = false
 var current_level: int = 0
 var current_score: int = 0
 var high_score: int = 0
+var lives: int = 3
 
-@export var wait_time_to_reset_level: float = 1.0
+@export var wait_time_to_reset_level: float = 0.5
 
 
 func load_next_level() -> void:
@@ -38,11 +39,16 @@ func _score_screen() -> void:
 func restart_game() -> void:
 	current_level = 0
 	current_score = 0
+	lives = 3
 	get_tree().change_scene_to_packed.call_deferred(MAIN_MENU)
 
 
 func _reset_level() -> void:
+	lives -= 1
 	current_score = 0
+	if lives <= 0:
+		_score_screen()
+		return
 	get_tree().change_scene_to_packed(LEVELS[current_level])
 
 
