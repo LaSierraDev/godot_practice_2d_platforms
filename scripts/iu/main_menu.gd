@@ -13,12 +13,11 @@ func _ready() -> void:
 	music_button.pressed.connect(_on_music_button_pressed)
 	quit_button.pressed.connect(_on_quit_button_pressed)
 	SignalManager.score_increase.connect(_on_score_label_score_increase)
-
 	start_button.grab_focus()
+	_update_high_score()
 
-func _process(_delta: float) -> void:
-	pass
-
+func _update_high_score() -> void:
+	high_score_label.text = "High score: " + str(GameManager.dataio.load_data())
 
 func _on_start_button_pressed() -> void:
 	GameManager.load_next_level()
@@ -37,4 +36,4 @@ func _on_quit_button_pressed() -> void:
 
 
 func _on_score_label_score_increase() -> void:
-	high_score_label.text = "High score: " + str(GameManager.high_score)
+	_update_high_score()

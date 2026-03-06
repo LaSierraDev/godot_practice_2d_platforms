@@ -33,3 +33,6 @@ const ANI_DISSAPIAR: String = "dissapear"
 
 ## --- Properties Tweens --- ##
 const P_POSITION: String = "position"
+
+## --- DATA IO PATH --- ##
+const DATAIO_SAVE_LOAD_PATH: String = "user://savefile.save"

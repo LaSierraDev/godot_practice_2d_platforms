@@ -24,4 +24,4 @@ func _on_return_button_pressed() -> void:
 
 
 func _on_score_label_score_increase() -> void:
-	score_label.text = "Score: " + str(GameManager.high_score)
+	score_label.text = "Score: " + str(GameManager.current_score)

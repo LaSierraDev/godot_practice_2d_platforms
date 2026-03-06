@@ -8,6 +8,8 @@ const LEVELS: Dictionary = {
 	2: preload("uid://bvmlrytyveopv"), 
 }
 
+@onready var dataio: Dataio = Dataio.new()
+
 var game_over: bool = false
 var current_level: int = 0
 var current_score: int = 0
@@ -21,28 +23,17 @@ func load_next_level() -> void:
 	current_level += 1
 	
 	if current_level > LEVELS.size():
-		high_score = current_score
 		_score_screen()
 	else: 
 		get_tree().change_scene_to_packed.call_deferred(LEVELS[current_level])
-		SignalManager.score_increase.emit()
-		
+	high_score = current_score
+	SignalManager.score_increase.emit()
+	save_high_score()
 
 
 func update_score(points: int) -> void:
 	current_score += points
-	high_score += current_score
 	SignalManager.score_increase.emit()
-
-
-func _ready() -> void:
-	SignalManager.next_level.connect(_on_next_level)
-	SignalManager.player_dead.connect(_on_player_dead)
-
-
-
-func _score_screen() -> void: 
-		get_tree().change_scene_to_packed.call_deferred(END_SCREEN)
 
 
 func restart_game() -> void:
@@ -52,13 +43,32 @@ func restart_game() -> void:
 	get_tree().change_scene_to_packed.call_deferred(MAIN_MENU)
 
 
+func save_high_score() -> void:
+	if current_score >= high_score:
+		high_score = current_score
+		dataio.save_data(high_score)
+
+
+func load_high_score() -> void:
+	high_score = dataio.load_data()
+
+func _ready() -> void:
+	SignalManager.next_level.connect(_on_next_level)
+	SignalManager.player_dead.connect(_on_player_dead)
+	load_high_score()
+
+
+func _score_screen() -> void: 
+		get_tree().change_scene_to_packed.call_deferred(END_SCREEN)
+
+
 func _reset_level() -> void:
 	lives -= 1
-	current_score = 0
-	high_score = 0
 	if lives <= 0:
+		save_high_score()
 		_score_screen()
 		return
+	current_score = high_score
 	get_tree().change_scene_to_packed(LEVELS[current_level])
 
 

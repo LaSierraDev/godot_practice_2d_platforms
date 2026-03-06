@@ -24,7 +24,7 @@ A small practice project built in **Godot 4.6.1**, focused on developing a **bas
 - Player detection and chase behavior  
 
 ### 🖥️ UI & Scenes
-- Score system  
+- Score system 
 - Options menu navigation  
 - Scene switching  
 - Node instancing  
@@ -32,6 +32,13 @@ A small practice project built in **Godot 4.6.1**, focused on developing a **bas
 - `CanvasLayer` for proper UI layout  
 - Responsive scaling for multiple resolutions  
 - Custom UI themes  
+
+### 💾 Data Persistence
+- Save system using **file storage**
+- Load system for restoring player progress
+- Persistent storage of:
+  - Player score
+  - Options/settings
 
 ### 🎨 Environment
 - `TileMap`  
