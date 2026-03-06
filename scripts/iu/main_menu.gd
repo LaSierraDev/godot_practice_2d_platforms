@@ -12,7 +12,8 @@ func _ready() -> void:
 	sfx_button.pressed.connect(_on_sfx_button_pressed)
 	music_button.pressed.connect(_on_music_button_pressed)
 	quit_button.pressed.connect(_on_quit_button_pressed)
-	
+	SignalManager.score_increase.connect(_on_score_label_score_increase)
+
 	start_button.grab_focus()
 
 func _process(_delta: float) -> void:
@@ -33,3 +34,7 @@ func _on_music_button_pressed() -> void:
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_score_label_score_increase() -> void:
+	high_score_label.text = "High score: " + str(GameManager.high_score)

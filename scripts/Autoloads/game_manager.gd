@@ -21,9 +21,18 @@ func load_next_level() -> void:
 	current_level += 1
 	
 	if current_level > LEVELS.size():
+		high_score = current_score
 		_score_screen()
 	else: 
 		get_tree().change_scene_to_packed.call_deferred(LEVELS[current_level])
+		SignalManager.score_increase.emit()
+		
+
+
+func update_score(points: int) -> void:
+	current_score += points
+	high_score += current_score
+	SignalManager.score_increase.emit()
 
 
 func _ready() -> void:
@@ -46,6 +55,7 @@ func restart_game() -> void:
 func _reset_level() -> void:
 	lives -= 1
 	current_score = 0
+	high_score = 0
 	if lives <= 0:
 		_score_screen()
 		return

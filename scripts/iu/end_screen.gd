@@ -7,6 +7,7 @@ extends Control
 
 func _ready() -> void:
 	return_button.pressed.connect(_on_return_button_pressed)
+	SignalManager.score_increase.connect(_on_score_label_score_increase)
 	return_button.grab_focus()
 	_update_end_label()
 	score_label.text = "Your Score: " + str(GameManager.current_score)
@@ -20,3 +21,7 @@ func _update_end_label() -> void:
 
 func _on_return_button_pressed() -> void:
 	GameManager.restart_game()
+
+
+func _on_score_label_score_increase() -> void:
+	score_label.text = "Score: " + str(GameManager.high_score)

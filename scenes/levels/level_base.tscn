@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c0eyshxw812y5" path="res://assets/sprites/tiles/foreground.png" id="3_dje0g"]
 [ext_resource type="PackedScene" uid="uid://1v3ioeemvap1" path="res://scenes/levels/level_condition_end.tscn" id="4_dq8h5"]
 [ext_resource type="PackedScene" uid="uid://ccpa7scx4bvyp" path="res://scenes/player/player.tscn" id="4_g7p6o"]
+[ext_resource type="PackedScene" uid="uid://wrxbtrvopco5" path="res://scenes/IU/hud.tscn" id="7_g7p6o"]
 [ext_resource type="PackedScene" uid="uid://calaewrk42yys" path="res://scenes/fall_death_area.tscn" id="7_ynct0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eamg3"]
@@ -158,3 +159,8 @@ position = Vector2(0, 184)
 [node name="LevelConditionEnd" parent="." unique_id=1742340898 instance=ExtResource("4_dq8h5")]
 
 [node name="Player" parent="." unique_id=664376293 instance=ExtResource("4_g7p6o")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1399634891]
+
+[node name="HUD" parent="CanvasLayer" unique_id=1155087691 instance=ExtResource("7_g7p6o")]
+metadata/_edit_lock_ = true

@@ -12,7 +12,6 @@ var following_position: Vector2
 @export var wait_time_to_reset_position: float = 5.0
 @export var initial_position: Vector2
 
-
 func _ready() -> void:
 	super._ready()
 	self.speed = 60

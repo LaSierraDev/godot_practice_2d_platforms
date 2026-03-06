@@ -134,6 +134,7 @@ height = 24.0
 [node name="Mushroom" unique_id=1398268162 instance=ExtResource("1_v73nu")]
 collision_mask = 7
 script = ExtResource("2_nfsas")
+points = 5
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=1693340170]
 sprite_frames = SubResource("SpriteFrames_uiuyj")

@@ -73,6 +73,7 @@ script = ExtResource("2_wvkya")
 following_time = 5.0
 wait_time_to_reset_position = 5.0
 initial_position = Vector2(0, 0)
+points = 10
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=1693340170]
 sprite_frames = SubResource("SpriteFrames_nysrg")
