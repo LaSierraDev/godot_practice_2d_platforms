@@ -55,7 +55,10 @@ A small practice project built in **Godot 4.6.1**, focused on developing a **bas
 
 + Patterns:
   + Signal Hub  
-  + Singleton (Autoloads)  
+  + Singleton (Autoloads)
+	- Audio Manager
+	- Debug Log  
+	- Game Manager
 
 - Signals  
 - Custom signals  

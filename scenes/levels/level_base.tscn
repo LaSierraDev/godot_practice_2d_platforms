@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://ccpa7scx4bvyp" path="res://scenes/player/player.tscn" id="4_g7p6o"]
 [ext_resource type="PackedScene" uid="uid://wrxbtrvopco5" path="res://scenes/IU/hud.tscn" id="7_g7p6o"]
 [ext_resource type="PackedScene" uid="uid://calaewrk42yys" path="res://scenes/fall_death_area.tscn" id="7_ynct0"]
-[ext_resource type="AudioStream" uid="uid://d4af8c602dmdv" path="res://assets/audio/music/bit-bit-loop.mp3" id="8_40ga3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eamg3"]
 texture = ExtResource("2_6cjw3")
@@ -167,5 +166,3 @@ position = Vector2(0, 184)
 metadata/_edit_lock_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1929467101]
-stream = ExtResource("8_40ga3")
-autoplay = true
