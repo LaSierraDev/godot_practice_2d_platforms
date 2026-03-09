@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
 @onready var coyote_trigger_area_2d: Area2D = $CoyoteTriggerArea2D
 @onready var hurtbox: Area2D = $Hurtbox
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var x_input: float
 var is_facing_right: bool = true
@@ -55,9 +56,9 @@ func _player_movement() -> void:
 
 
 func _jump() -> void: 
-	if is_on_floor() or is_coyote_time:
-		if Input.is_action_just_pressed(Global.A_JUMP):
+	if (is_on_floor() or is_coyote_time) and Input.is_action_just_pressed(Global.A_JUMP):
 			self.velocity.y = -jump_impulse # Es lo mismo que multiplicarlo por -1
+			AudioManager.play_sfx(audio_stream_player_2d, AudioManager.JUMP, 10)
 
 
 func _gravity(delta: float) -> void:

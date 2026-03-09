@@ -18,8 +18,10 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*uid://csoq6o2rm8uaf"
+AudioManager="*uid://ct4ijhj4f2f7l"
 SignalManager="*uid://jca4u5i8roso"
 GameManager="*uid://dq73kettdv7ai"
+DebugLog="*uid://d2c8sjg71gjat"
 
 [display]
 
