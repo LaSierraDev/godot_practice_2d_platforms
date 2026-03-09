@@ -25,7 +25,9 @@ func _ready() -> void:
 	quit_button.mouse_entered.connect(_on_button_focus_entered)
 	
 	start_button.grab_focus()
-
+	
+	AudioManager.reset_audio() 
+	
 	SignalManager.score_increase.connect(_on_score_label_score_increase)
 	_update_high_score()
 

@@ -65,3 +65,5 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_type_variation = &"FlatButton"
 text = "Go Back"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1789844021]

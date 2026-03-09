@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://xfmqmjqf3027"]
 
+[ext_resource type="Script" uid="uid://c08ybnbxqxfqv" path="res://scripts/level_base.gd" id="1_40ga3"]
 [ext_resource type="Script" uid="uid://c18aghx8qvhfq" path="res://scripts/camera_2d.gd" id="1_d61h5"]
 [ext_resource type="Texture2D" uid="uid://qskqi57a75hf" path="res://assets/sprites/tiles/background-tile.png" id="2_6cjw3"]
 [ext_resource type="Texture2D" uid="uid://c0eyshxw812y5" path="res://assets/sprites/tiles/foreground.png" id="3_dje0g"]
@@ -124,6 +125,7 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_x5he8")
 
 [node name="Level" type="Node2D" unique_id=49469792]
+script = ExtResource("1_40ga3")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1565062422]
 offset = Vector2(0, -10)

@@ -1,5 +1,6 @@
 extends Node
 
+const BIT_BIT_LOOP = preload("uid://d4af8c602dmdv")
 const BUTTON_FOCUS = preload("uid://bsjvqtlsk5swi")
 const ENEMY_DIE = preload("uid://bshm8e28hje8a")
 const JUMP = preload("uid://dpvosiqf68iss")
@@ -22,8 +23,22 @@ func play_sfx(audio_stream_player: Variant, sfx: AudioStream, volume_db: float =
 		audio_stream_player.volume_db = volume_db
 		audio_stream_player.play()
 
+
 func toggle_sfx() -> void:
 	is_sfx_active = not is_sfx_active
 
+
 func toggle_music() -> void:
 	is_music_active = not is_music_active
+
+
+func play_music(audio_stream_player: Variant, music: AudioStream, volume_db: float = 0.0) -> void:
+	if is_music_active:
+		audio_stream_player.stream = music
+		audio_stream_player.volume_db = volume_db
+		audio_stream_player.play()
+
+
+func reset_audio() -> void:
+	is_music_active = true
+	is_sfx_active = true
