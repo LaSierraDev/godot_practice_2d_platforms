@@ -58,7 +58,7 @@ func _player_movement() -> void:
 func _jump() -> void: 
 	if (is_on_floor() or is_coyote_time) and Input.is_action_just_pressed(Global.A_JUMP):
 			self.velocity.y = -jump_impulse # Es lo mismo que multiplicarlo por -1
-			AudioManager.play_sfx(audio_stream_player_2d, AudioManager.JUMP, 10)
+			AudioManager.play_sfx(audio_stream_player_2d, AudioManager.JUMP)
 
 
 func _gravity(delta: float) -> void:
@@ -80,10 +80,8 @@ func _update_animation() -> void:
 
 
 func _deactive_coyote_time() -> void:
-	#print("Ya no estoy en el suelo y me estoy cayendo")
 	await get_tree().create_timer(coyote_time).timeout 
 	is_coyote_time = false
-	#print("Coyote time desactivado")
 
 
 func _knockback(direction: String, force: float) -> void:
@@ -98,12 +96,7 @@ func _knockback(direction: String, force: float) -> void:
 		Global.K_VERTICAL_TO_DOWN:
 			self.velocity.y = force
 		Global.K_VERTICAL_TO_UP:
-			self.velocity.y = -force
-
-
-func hit() -> void:
-	animation_player.play(Global.ANI_DISSAPIAR, true)
-	stand() 
+			self.velocity.y = -force 
 
 
 func destroy_me():
@@ -111,7 +104,9 @@ func destroy_me():
 	queue_free()
 
 
-func stand() -> void: 
+func die() -> void: 
+	AudioManager.play_sfx(audio_stream_player_2d, AudioManager.PLAYER_DIE)
+	animation_player.play(Global.ANI_DISSAPIAR, true)
 	animated_sprite.stop()
 	set_process(false)
 	set_physics_process(false)
@@ -130,10 +125,10 @@ func _on_coyote_trigger_body_exited(body: Node2D) -> void:
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group(Global.G_TRAP):
-		hit()
+		die()
 	elif self.position.y < area.global_position.y:
-		_knockback(Global.K_VERTICAL_TO_UP, jump_impulse)
-	else: hit()
+		_knockback(Global.K_VERTICAL_TO_UP, jump_impulse * 0.5)
+	else: die()
 
 
 func _on_animation_player_animation_finished(_ani_name: StringName) -> void:

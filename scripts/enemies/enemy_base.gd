@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var visible_on_screen_notifier_2d: VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var _is_facing_right: bool = false
 var _is_inside_screen: bool = false
@@ -15,6 +16,7 @@ var _deactivated_time: float = 1.0
 @export var jump_impulse: float = 330.0
 @export var gravity: float = 980.0
 @export var points: int = 0
+
 
 func _ready() -> void:
 	if _player == null: 
@@ -68,6 +70,7 @@ func destroy_me() -> void:
 func hit() -> void:
 	GameManager.update_score(points)
 	animation_player.play(Global.ANI_DISSAPIAR, true)
+	AudioManager.play_sfx(audio_stream_player_2d, AudioManager.ENEMY_DIE)
 	stand() 
 
 
