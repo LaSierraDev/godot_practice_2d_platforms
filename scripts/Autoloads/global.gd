@@ -38,3 +38,6 @@ const P_POSITION: String = "position"
 
 ## --- DATA IO PATH --- ##
 const DATAIO_SAVE_LOAD_PATH: String = "user://savefile.save"
+
+## --- TIMERS --- ##
+const TIME_FADE_IN_OUT: float = 0.5
