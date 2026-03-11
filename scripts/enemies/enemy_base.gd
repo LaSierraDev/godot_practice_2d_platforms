@@ -69,6 +69,7 @@ func destroy_me() -> void:
 
 
 func hit() -> void:
+	animation_player.play(Global.ANI_HIT, true)
 	GameManager.update_score(points)
 	_die()
 
@@ -85,7 +86,9 @@ func _on_hurbox_area_entered(_area: Area2D) -> void:
 
 
 func _on_animation_player_animation_finished(_ani_name: StringName) -> void:
-	destroy_me()
+	if _ani_name == Global.ANI_DISSAPIAR:
+		if not animation_player.is_playing():
+			destroy_me()
 
 
 func _on_screen_entered_screen_notifier() -> void:

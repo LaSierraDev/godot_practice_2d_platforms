@@ -2,127 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ckp3a0dbpjj03" path="res://scenes/enemies/enemy_base.tscn" id="1_v73nu"]
 [ext_resource type="Script" uid="uid://dy1axvuvpn3tm" path="res://scripts/enemies/mushroom.gd" id="2_nfsas"]
-[ext_resource type="Texture2D" uid="uid://cdtkf7cwhi7jj" path="res://assets/sprites/enemies/mushroom.png" id="3_nfsas"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i0alm"]
-atlas = ExtResource("3_nfsas")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b6bn4"]
-atlas = ExtResource("3_nfsas")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qyqt7"]
-atlas = ExtResource("3_nfsas")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iiaqh"]
-atlas = ExtResource("3_nfsas")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6g5jk"]
-atlas = ExtResource("3_nfsas")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p8sgy"]
-atlas = ExtResource("3_nfsas")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_adtva"]
-atlas = ExtResource("3_nfsas")
-region = Rect2(192, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w16fr"]
-atlas = ExtResource("3_nfsas")
-region = Rect2(224, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yksrr"]
-atlas = ExtResource("3_nfsas")
-region = Rect2(256, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t7fmb"]
-atlas = ExtResource("3_nfsas")
-region = Rect2(288, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m2jh3"]
-atlas = ExtResource("3_nfsas")
-region = Rect2(320, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_af7ig"]
-atlas = ExtResource("3_nfsas")
-region = Rect2(352, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q4jpt"]
-atlas = ExtResource("3_nfsas")
-region = Rect2(384, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xn5s3"]
-atlas = ExtResource("3_nfsas")
-region = Rect2(416, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g7ymc"]
-atlas = ExtResource("3_nfsas")
-region = Rect2(448, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_btfv3"]
-atlas = ExtResource("3_nfsas")
-region = Rect2(480, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_uiuyj"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i0alm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_b6bn4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qyqt7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_iiaqh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6g5jk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p8sgy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_adtva")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w16fr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yksrr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t7fmb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m2jh3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_af7ig")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q4jpt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xn5s3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g7ymc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_btfv3")
-}],
-"loop": true,
-"name": &"default",
-"speed": 16.0
-}]
+[ext_resource type="SpriteFrames" uid="uid://nv65rhxc2fhr" path="res://resources/mushroom_sprite_frames.tres" id="3_1calh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nfsas"]
 size = Vector2(11, 20)
@@ -137,7 +17,7 @@ script = ExtResource("2_nfsas")
 points = 5
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=1693340170]
-sprite_frames = SubResource("SpriteFrames_uiuyj")
+sprite_frames = ExtResource("3_1calh")
 autoplay = "default"
 frame_progress = 0.5034225
 

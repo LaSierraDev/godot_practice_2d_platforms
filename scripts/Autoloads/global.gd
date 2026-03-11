@@ -30,6 +30,7 @@ const K_HORIZONTAL_TO_LEFT: String = "horizontal left"
 
 ## --- Animation --- ## 
 const ANI_DISSAPIAR: String = "dissapear"
+const ANI_HIT: String = "hit"
 const ANI_FADE_IN: String = "fade_in"
 const ANI_FADE_OUT: String = "fade_out"
 

@@ -95,4 +95,4 @@ position = Vector2(1648, 224)
 position = Vector2(8, 240)
 
 [node name="LevelConditionEnd2" parent="." index="11" unique_id=1452021542 instance=ExtResource("5_qdh5e")]
-position = Vector2(208, 224)
+position = Vector2(1136, 112)
