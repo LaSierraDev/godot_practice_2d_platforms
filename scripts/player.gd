@@ -24,6 +24,7 @@ func _ready() -> void:
 	coyote_trigger_area_2d.body_exited.connect(_on_coyote_trigger_body_exited)
 	hurtbox.area_entered.connect(_on_hurtbox_area_entered)
 	animation_player.animation_finished.connect(_on_animation_player_animation_finished)
+	SignalManager.level_completed.connect(_on_level_completed)
 
 
 func _process(_delta: float) -> void:
@@ -99,6 +100,11 @@ func _knockback(direction: String, force: float) -> void:
 			self.velocity.y = -force 
 
 
+func _stop_all() -> void:
+	set_process(false)
+	set_physics_process(false)
+
+
 func destroy_me():
 	SignalManager.player_dead.emit()
 	queue_free()
@@ -108,8 +114,7 @@ func die() -> void:
 	AudioManager.play_sfx(audio_stream_player_2d, AudioManager.PLAYER_DIE)
 	animation_player.play(Global.ANI_DISSAPIAR, true)
 	animated_sprite.stop()
-	set_process(false)
-	set_physics_process(false)
+	_stop_all()
 
 
 func _on_coyote_trigger_body_entered_in(body: Node2D) -> void:
@@ -133,3 +138,9 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 
 func _on_animation_player_animation_finished(_ani_name: StringName) -> void:
 	destroy_me()
+
+
+func _on_level_completed() -> void:
+	animated_sprite.stop()
+	animated_sprite.play(Global.MA_IDLE, true)
+	_stop_all()

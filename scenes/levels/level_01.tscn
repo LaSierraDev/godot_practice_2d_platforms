@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://be4s12somy732" path="res://scenes/collectibles/apple.tscn" id="2_uvc87"]
 [ext_resource type="PackedScene" uid="uid://cnlbwo250sgrw" path="res://scenes/enemies/mushroom.tscn" id="3_qdh5e"]
 [ext_resource type="PackedScene" uid="uid://domtusqsyxq3q" path="res://scenes/enemies/bat.tscn" id="4_50wog"]
+[ext_resource type="PackedScene" uid="uid://1v3ioeemvap1" path="res://scenes/levels/level_condition_end.tscn" id="5_qdh5e"]
 
 [node name="Level" unique_id=49469792 instance=ExtResource("1_m802k")]
 
@@ -73,7 +74,6 @@ position = Vector2(1024, 80)
 
 [node name="Mushroom4" parent="Enemies" parent_id_path=PackedInt32Array(185460080) index="3" unique_id=966262332 instance=ExtResource("3_qdh5e")]
 position = Vector2(960, 240)
-inverse = true
 
 [node name="Mushroom6" parent="Enemies" parent_id_path=PackedInt32Array(185460080) index="4" unique_id=1849117499 instance=ExtResource("3_qdh5e")]
 position = Vector2(1392, 240)
@@ -93,3 +93,6 @@ position = Vector2(1648, 224)
 
 [node name="Player" parent="." index="8" unique_id=664376293]
 position = Vector2(8, 240)
+
+[node name="LevelConditionEnd2" parent="." index="11" unique_id=1452021542 instance=ExtResource("5_qdh5e")]
+position = Vector2(208, 224)

@@ -27,6 +27,7 @@ func _ready() -> void:
 	visible_on_screen_notifier_2d.screen_entered.connect(_on_screen_entered_screen_notifier)
 	visible_on_screen_notifier_2d.screen_exited.connect(_on_screen_exited_screen_notifier)
 	
+	SignalManager.level_completed.connect(_on_level_completed)
 
 
 func _flip() -> void:
@@ -69,12 +70,11 @@ func destroy_me() -> void:
 
 func hit() -> void:
 	GameManager.update_score(points)
+	_die()
+
+func _die() -> void:
 	animation_player.play(Global.ANI_DISSAPIAR, true)
 	AudioManager.play_sfx(audio_stream_player_2d, AudioManager.ENEMY_DIE)
-	stand() 
-
-
-func stand() -> void: 
 	animated_sprite_2d.pause()
 	_activation(false)
 
@@ -97,3 +97,7 @@ func _on_screen_exited_screen_notifier() -> void:
 	_is_inside_screen = false
 	await get_tree().create_timer(_deactivated_time).timeout
 	_activation(_is_inside_screen)
+
+
+func _on_level_completed() -> void:
+	_die()

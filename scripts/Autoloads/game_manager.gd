@@ -52,6 +52,7 @@ func save_high_score() -> void:
 func load_high_score() -> void:
 	high_score = dataio.load_data()
 
+
 func _ready() -> void:
 	SignalManager.next_level.connect(_on_next_level)
 	SignalManager.player_dead.connect(_on_player_dead)

@@ -10,5 +10,3 @@ func _ready() -> void:
 func _on_area_entered(_area: Area2D) -> void:
 	SignalManager.level_completed.emit()
 	AudioManager.play_sfx(audio_stream_player_2d, AudioManager.SUCCESS)
-	await get_tree().create_timer(Global.TIME_FADE_IN_OUT).timeout
-	GameManager.load_next_level()
