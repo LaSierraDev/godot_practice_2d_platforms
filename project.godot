@@ -10,10 +10,14 @@ config_version=5
 
 [application]
 
-config/name="2D_Platform"
+config/name="2D Platform Practice"
 run/main_scene="uid://d1flsgnad5ehg"
 config/features=PackedStringArray("4.6", "Mobile")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.19215687, 0.19215687, 0.2, 1)
+boot_splash/stretch_mode=5
+boot_splash/image="uid://dhpd3i7bomvhj"
+config/icon="uid://bltk6uvh6bogb"
+boot_splash/minimum_display_time=2000
 
 [autoload]
 
